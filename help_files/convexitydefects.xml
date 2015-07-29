@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="convexitydefects" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>convexitydefects</refname>
+
+		<refpurpose>Finds the convexity defects of a contour.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>convexity_defects = convexitydefects( vector(Point) contour, vector(Point) hull);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   	 <varlistentry><term>contour :</term>
+      <listitem><para>Input contour.</para></listitem></varlistentry>
+   <varlistentry><term>hull:</term>
+      <listitem><para> Convex hull obtained using convexHull() that should contain indices of the contour points that make the hull.</para></listitem></varlistentry>
+   <varlistentry><term>convexity_defects :</term>
+      <listitem><para> The output vector of convexity defects. In C++ and the new Python/Java interface each convexity defect is represented as 4-element integer vector (a.k.a. cv::Vec4i): (start_index, end_index, farthest_pt_index, fixpt_depth), where indices are 0-based indices in the original contour of the convexity defect beginning, end and the farthest point, and fixpt_depth is fixed-point approximation (with 8 fractional bits) of the distance between the farthest contour point and the hull. That is, to get the floating-point value of the depth will be fixpt_depth/256.0.</para></listitem></varlistentry>
+    </variablelist>
+</refsection>
+		
+	<refsection>
+		<title>Description</title>
+
+		<para>The function finds all convexity defects of the input contour and returns a sequence of the CvConvexityDefect structures.
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+			b=canny(a, 100, 200, 3, 0);
+            c=findContours(b, "CV_RETR_TREE", "CV_CHAIN_APPROX_SIMPLE", 0, 0);
+            d= convexhull (c(1) , 0 ,1);
+            e= convexitydefects(c(1),d);
+            e;
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>
+	

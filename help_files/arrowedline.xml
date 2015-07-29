@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="arrowedline" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>arrowedline</refname>
+
+		<refpurpose>Draws a arrow segment pointing from the first point to the second one.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>return_image = arrowedline(input_image,double x1,double y1,double x2, double y2,int r_value,int g_value,int b_value,int thickness,int linetype,int shift,double tiplength);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   	 <varlistentry><term>input_image  :</term>
+      <listitem><para> Image matrix(generated after imread) where the arrowedline is drawn.</para></listitem></varlistentry>
+   <varlistentry><term>x1:</term>
+      <listitem><para> x coordinate of the point the arrow starts from.</para></listitem></varlistentry>
+   <varlistentry><term>y1  :</term>
+      <listitem><para> y coordinate of the point the arrow starts from.</para></listitem></varlistentry>
+    <varlistentry><term>x2 :</term>
+      <listitem><para> x coordinate of the point the arrow points to.</para></listitem></varlistentry>
+    <varlistentry><term>y2 :</term>
+      <listitem><para> y coordinate of the point the arrow points to.</para></listitem></varlistentry>
+     <varlistentry><term>r_value :</term>
+      <listitem><para>Amount of r in the colour between 0 and 255.</para></listitem></varlistentry>
+    <varlistentry><term>g_value:</term>
+      <listitem><para>   Amount of g in the colour between 0 and 255.</para></listitem></varlistentry>
+    <varlistentry><term>b_value :</term>
+      <listitem><para> Amount of b in the colour between 0 and 255.</para></listitem></varlistentry>
+     <varlistentry><term>thickness :</term>
+      <listitem><para> Thickness of the line.</para></listitem></varlistentry> 
+    <varlistentry><term>linetype :</term>
+      <listitem><para> Type of the line.Can be 0/8 for 8 line connected, 4 for 4-line connected line.</para></listitem></varlistentry>
+    <varlistentry><term>shift :</term>
+      <listitem><para> Number of fractional bits in the point coordinates.</para></listitem></varlistentry>
+     <varlistentry><term>tiplength :</term>
+      <listitem><para> The length of the arrow tip in relation to the arrow length.</para></listitem></varlistentry>
+     <varlistentry><term>return_image  :</term>
+      <listitem><para> returns image matrix with changes applied.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+		
+	<refsection>
+		<title>Description</title>
+
+		<para>The function arrowedLine draws an arrow between pt1 and pt2 points in the image.
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+            b=arrowedline(a,100,100,200,200,255,0,0,5,8,0,0.1);
+            imshow(b);
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>

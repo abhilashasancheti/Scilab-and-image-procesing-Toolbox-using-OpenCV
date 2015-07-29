@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="convexhull" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>convexhull</refname>
+
+		<refpurpose>Finds the convex hull of a point set.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>  hull = convexhull( vector(Point) contour, int clockwise , int returnpoints);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   	 <varlistentry><term>contour :</term>
+      <listitem><para>Input is a vector of points.</para></listitem></varlistentry>
+   <varlistentry><term>clockwise:</term>
+      <listitem><para> Orientation flag. If it is true, the output convex hull is oriented clockwise. Otherwise, it is oriented counter-clockwise. The assumed coordinate system has its X axis pointing to the right, and its Y axis pointing upwards.</para></listitem></varlistentry>
+   <varlistentry><term>returnpoints :</term>
+      <listitem><para>Operation flag. In case of a matrix, when the flag is true, the function returns convex hull points. Otherwise, it returns indices of the convex hull points. When the output array is std::vector, the flag is ignored, and the output depends on the type of the vector: std::vector(int)implies returnPoints=true, std::vector(Point)implies returnPoints=false.</para></listitem></varlistentry>
+    <varlistentry><term>hull :</term>
+      <listitem><para>  Output convex hull. It is either an integer vector of indices or vector of points. In the first case, the hull elements are 0-based indices of the convex hull points in the original array (since the set of convex hull points is a subset of the original point set). In the second case, hull elements are the convex hull points themselves.</para></listitem></varlistentry>
+    </variablelist>
+</refsection>
+		
+	<refsection>
+		<title>Description</title>
+
+		<para>The functions find the convex hull of a 2D point set using the Sklansky’s algorithm [Sklansky82] that has O(N logN) complexity in the current implementation.
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+			b=canny(a, 100, 200, 3, 0);
+            c=findContours(b, "CV_RETR_TREE", "CV_CHAIN_APPROX_SIMPLE", 0, 0);
+            d= convexhull (c(1) , 0 ,1);
+            d;
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>
+	

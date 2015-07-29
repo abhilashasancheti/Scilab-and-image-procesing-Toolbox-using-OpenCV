@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="fillconvexpoly" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>fillconvexpoly</refname>
+
+		<refpurpose>Fills a convex polygon.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>return_image = fillConvexPoly(input_image,matrix points , int npts,int r_value, int g_value , int b_value, int lineType, int shift);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>input_image  :</term>
+      <listitem><para> Image matrix(generated after imread) where the plogon is to be drawn.</para></listitem></varlistentry>
+   <varlistentry><term>points:</term>
+      <listitem><para>  Polygon vertices.For example:points: [0 0;0 100;100 0; 100 100]</para></listitem></varlistentry>
+   <varlistentry><term>npts :</term>
+      <listitem><para>Number of polygon vertices.</para></listitem></varlistentry>
+    <varlistentry><term>r_value :</term>
+      <listitem><para>Amount of r in the colour between 0 and 255.</para></listitem></varlistentry>
+    <varlistentry><term>g_value:</term>
+      <listitem><para>   Amount of g in the colour between 0 and 255.</para></listitem></varlistentry>
+    <varlistentry><term>b_value :</term>
+      <listitem><para> Amount of b in the colour between 0 and 255.</para></listitem></varlistentry>  
+    <varlistentry><term>lineType :</term>
+      <listitem><para>Type of the polygon boundaries.Can be 0/8 for 8 line connected, 4 for 4-line connected line.</para></listitem></varlistentry>
+    <varlistentry><term>shift :</term>
+      <listitem><para> Number of fractional bits in the vertex coordinates.</para></listitem></varlistentry>
+     <varlistentry><term>return_image  :</term>
+      <listitem><para> returns image matrix with filled polygon drawn.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+				
+	
+	<refsection>
+		<title>Description</title>
+
+		<para>The function fillConvexPoly draws a filled convex polygon. This function is much faster than the function fillPoly . It can fill not only convex polygons but any monotonic polygon without self-intersections, that is, a polygon whose contour intersects every horizontal line (scan line) twice at the most (though, its top-most and/or the bottom edge could be horizontal).
+    	</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+            b=fillconvexpoly(a,points,4,0,0,0,8,0); 
+            imshow(b);
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>

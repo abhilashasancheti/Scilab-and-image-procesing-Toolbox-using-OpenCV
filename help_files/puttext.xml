@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="puttext" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>puttext</refname>
+
+		<refpurpose>Draws a text string.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>return_image = puttext(input_image ,double x1 ,double y1 ,double fontscale,int r_value,int g_value,int b_value,string text,string fontface ,int thickness,int linetype,int bottomleft);</synopsis>
+	</refsynopsisdiv>
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>input_image  :</term>
+      <listitem><para> Image matrix(generated after imread ) where text is written.</para></listitem></varlistentry>
+   <varlistentry><term>x1:</term>
+      <listitem><para>x coordinate of the Bottom-left corner of the text string in the image.</para></listitem></varlistentry>
+   <varlistentry><term>y1 :</term>
+      <listitem><para>  coordinate of the Bottom-left corner of the text string in the image.</para></listitem></varlistentry>
+    <varlistentry><term>fontscale:</term>
+      <listitem><para>  Font scale factor that is multiplied by the font-specific base size.</para></listitem></varlistentry>
+    <varlistentry><term>r_value :</term>
+      <listitem><para>Amount of r in the colour between 0 and 255.</para></listitem></varlistentry>
+    <varlistentry><term>g_value:</term>
+      <listitem><para>   Amount of g in the colour between 0 and 255.</para></listitem></varlistentry>
+    <varlistentry><term>b_value :</term>
+      <listitem><para> Amount of b in the colour between 0 and 255.</para></listitem></varlistentry>  
+    <varlistentry><term>text :</term>
+    <listitem><para> Text string to be drawn.</para></listitem></varlistentry> 
+    <varlistentry><term>fontface :</term>
+      <listitem><para> Font type input as string. One of FONT_HERSHEY_SIMPLEX, FONT_HERSHEY_PLAIN, FONT_HERSHEY_DUPLEX, FONT_HERSHEY_COMPLEX, FONT_HERSHEY_TRIPLEX, FONT_HERSHEY_COMPLEX_SMALL, FONT_HERSHEY_SCRIPT_SIMPLEX, or FONT_HERSHEY_SCRIPT_COMPLEX.</para></listitem></varlistentry>  
+    <varlistentry><term>thickness :</term>
+      <listitem><para> Thickness of the lines used to draw a text.</para></listitem></varlistentry>
+    <varlistentry><term>linetype :</term>
+      <listitem><para> Type of line.Can be 0/8 for 8 line connected, 4 for 4-line connected line.</para></listitem></varlistentry>
+    <varlistentry><term>bottomleft :</term>
+      <listitem><para> When 1, the image data origin is at the bottom-left corner. When 0 , it is at the top-left corner.</para></listitem></varlistentry>
+     <varlistentry><term>return_image  :</term>
+      <listitem><para> returns image matrix with changes applied.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+	
+	<refsection>
+		<title>Description</title>
+
+		<para>The function puttext renders the specified text string in the image. Symbols that cannot be rendered using the specified font are replaced by question marks. See getTextSize() for a text rendering code example.
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+            b=puttext(a,100,100,2,255,0,0,"Hello","FONT_HERSHEY_SCRIPT_SIMPLEX",5,8,0);
+            imshow(b);
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>

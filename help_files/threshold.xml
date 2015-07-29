@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="threshold" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>threshold</refname>
+
+		<refpurpose>Applies a fixed-level threshold to each array element.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis> [return_image, double] = threshold(input_image,double threshold_value,double max_value, string type);</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   	 <varlistentry><term>input_image  :</term>
+      <listitem><para>  Input array (single-channel, 8-bit or 32-bit floating point).If the image is 3-channel then it will be automatically converted to 1-channel.</para></listitem></varlistentry>
+   <varlistentry><term>threshold_value:</term>
+      <listitem><para> Threshold value.</para></listitem></varlistentry>
+   <varlistentry><term>max_val :</term>
+      <listitem><para>Maximum value to use with the THRESH_BINARY and THRESH_BINARY_INV thresholding types.</para></listitem></varlistentry>
+    <varlistentry><term>type :</term>
+      <listitem><para> Type of thresholding as a string.There can be 5 types- THRESH_BINARY , THRESH_BINARY_INV, THRESH_TRUNC, THRESH_TOZERO, THRESH_TOZERO_INV. If some unknown type is given then it considers it as THRESH_BINARY.</para></listitem></varlistentry>
+    <varlistentry><term>return_image  :</term>
+      <listitem><para> Returns image matrix of the same size and single channel.</para></listitem></varlistentry>
+    <varlistentry><term>double  :</term>
+      <listitem><para> Returns a double value.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+		
+	<refsection>
+		<title>Description</title>
+
+		<para>The function applies fixed-level thresholding to a single-channel array. The function is typically used to get a bi-level (binary) image out of a grayscale image ( compare() could be also used for this purpose) or for removing a noise, that is, filtering out pixels with too small or too large values. There are several types of thresholding supported by the function. They are determined by type of thresholding.
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+            [b,c]=threshold( a, 0, 255,"THRESH_BINARY" );
+            imshow(b);
+            c;
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>
+	

@@ -1,0 +1,79 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="goodfeaturestotrack" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>goodfeaturestotrack</refname>
+
+		<refpurpose>Determines strong corners on an image.
+		</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis> corner_points = goodfeaturestotrack( input_image,int maxCorners,double qualityLevel,double minDistance,int blockSize,int useHarrisDetector,double k );</synopsis>
+	</refsynopsisdiv>
+	
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   	 <varlistentry><term>input_image  :</term>
+      <listitem><para>  Input 8-bit or floating-point 32-bit, single-channel image.In case it is not a 3-channel image then it will be internally converted into a single-channel image.</para></listitem></varlistentry>
+   <varlistentry><term>maxCorners:</term>
+      <listitem><para> Maximum number of corners to return. If there are more corners than are found, the strongest of them is returned.</para></listitem></varlistentry>
+   <varlistentry><term>qualityLevel  :</term>
+      <listitem><para> Parameter characterizing the minimal accepted quality of image corners. The parameter value is multiplied by the best corner quality measure, which is the minimal eigenvalue (see cornerMinEigenVal() ) or the Harris function response (see cornerHarris() ). The corners with the quality measure less than the product are rejected. For example, if the best corner has the quality measure = 1500, and the qualityLevel=0.01 , then all the corners with the quality measure less than 15 are rejected.</para></listitem></varlistentry>
+    <varlistentry><term>minDistance :</term>
+      <listitem><para> Minimum possible Euclidean distance between the returned corners.</para></listitem></varlistentry>
+    <varlistentry><term>blockSize :</term>
+      <listitem><para> Size of an average block for computing a derivative covariation matrix over each pixel neighborhood.</para></listitem></varlistentry>
+     <varlistentry><term>useHarrisDetector :</term>
+      <listitem><para>Parameter indicating whether to use a Harris detector (see cornerHarris()) or cornerMinEigenVal(). 1 for true and 0 for false.</para></listitem></varlistentry>
+    <varlistentry><term>k:</term>
+      <listitem><para>Free parameter of the Harris detector.</para></listitem></varlistentry>
+    <varlistentry><term>corner_points :</term>
+      <listitem><para>  Output vector of detected corners. vector of points.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+		
+	<refsection>
+		<title>Description</title>
+
+		<para>The function finds the most prominent corners in the image or in the specified image region.
+		</para>
+		<para><simplelist type="vert">
+		<member>Function calculates the corner quality measure at every source image pixel using the cornerMinEigenVal() or cornerHarris() .</member>
+		<member>Function performs a non-maximum suppression (the local maximums in 3 x 3 neighborhood are retained).</member>
+		<member>The corners with the minimal eigenvalue less than \texttt{qualityLevel} \cdot \max_{x,y} qualityMeasureMap(x,y) are rejected.</member>
+		<member>The remaining corners are sorted by the quality measure in the descending order.</member>
+		<member>Function throws away each corner for which there is a stronger corner at a distance less than maxDistance.</member>
+		</simplelist></para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+            b=goodfeaturestotrack(a,25,0.01,10,3,0,0.04);
+            b;
+            ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>
+
+

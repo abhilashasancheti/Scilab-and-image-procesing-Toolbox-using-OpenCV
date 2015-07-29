@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="findContours" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>findContours</refname>
+
+		<refpurpose>Finds contours in a binary image.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>vector_contours = findContours(input_image,string mode,string method,double x ,double y);</synopsis>
+	</refsynopsisdiv>
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>input_image  :</term>
+      <listitem><para>  Source, an 8-bit single-channel image. Non-zero pixels are treated as 1’s. Zero pixels remain 0’s, so the image is treated as binary . You can use compare() , inRange() , threshold() , adaptiveThreshold() , Canny() , and others to create a binary image out of a grayscale or color one. The function modifies the image while extracting the contours. </para></listitem></varlistentry>
+   <varlistentry><term>mode :</term>
+      <listitem><para> Contour retrieval mode.If invalid mode is provided then CV_RETR_TREE is used instead.Available modes are: CV_RETR_EXTERNAL,CV_RETR_LIST,CV_RETR_CCOMP,CV_RETR_TREE.</para></listitem></varlistentry>
+   <varlistentry><term>method :</term>
+      <listitem><para> Contour approximation method.If invalid method is provided CV_CHAIN_APPROX_SIMPLE is used.instead. Available methods are:CV_CHAIN_APPROX_NONE,CV_CHAIN_APPROX_SIMPLE,CV_CHAIN_APPROX_TC89_L1,CV_CHAIN_APPROX_TC89_KCOS.</para></listitem></varlistentry>
+    <varlistentry><term>x :</term>
+      <listitem><para> x coordinate of the offset point.</para></listitem></varlistentry>
+    <varlistentry><term>y :</term>
+      <listitem><para>y coordinate of the offset point.</para></listitem></varlistentry>
+    <varlistentry><term>vector_contours :</term>
+      <listitem><para> Detected contours. Each contour is stored as a vector of points.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+	
+			
+			
+	
+	<refsection>
+		<title>Description</title>
+
+		<para>The function retrieves contours from the binary image using the algorithm. The contours are a useful tool for shape analysis and object detection and recognition.
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+			b=canny(a, 100, 200, 3, 0);
+            c=findContours(b, "CV_RETR_TREE", "CV_CHAIN_APPROX_SIMPLE", 0, 0);
+            c;
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>

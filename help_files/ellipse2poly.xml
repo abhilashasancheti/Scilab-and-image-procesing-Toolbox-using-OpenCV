@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="ellipse2poly" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>ellipse2poly</refname>
+
+		<refpurpose>Approximates an elliptic arc with a polyline.</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis> pts = ellipse2poly(double center_x,double center_y,double width,double height,int angle, int arcStart, int arcEnd, int delta);</synopsis>
+	</refsynopsisdiv>
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>center_x:</term>
+      <listitem><para> x coordinate of the center the arc.</para></listitem></varlistentry>
+   <varlistentry><term>center_y  :</term>
+      <listitem><para> y coordinate of the center of the arc.</para></listitem></varlistentry>
+    <varlistentry><term>width :</term>
+      <listitem><para>  Half of the width of the ellipse main axes.</para></listitem></varlistentry>
+    <varlistentry><term>height :</term>
+      <listitem><para> Half of the height of the ellipse main axes.</para></listitem></varlistentry>
+    <varlistentry><term>angle:</term>
+      <listitem><para>Rotation angle of the ellipse in degrees. </para></listitem></varlistentry>
+    <varlistentry><term>arcStart :</term>
+      <listitem><para> Starting angle of the elliptic arc in degrees.</para></listitem></varlistentry>  
+    <varlistentry><term>arcEnd :</term>
+      <listitem><para> Ending angle of the elliptic arc in degrees.</para></listitem></varlistentry> 
+    <varlistentry><term>delta :</term>
+      <listitem><para>Angle between the subsequent polyline vertices. It defines the approximation accuracy.</para></listitem></varlistentry>
+    <varlistentry><term>pts :</term>
+      <listitem><para> Output vector of polyline vertices.</para></listitem></varlistentry>
+    </variablelist>
+</refsection>
+	
+			
+			
+	
+	<refsection>
+		<title>Description</title>
+
+		<para>The function ellipse2Poly computes the vertices of a polyline that approximates the specified elliptic arc. It is used by ellipse().
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			b=ellipse2poly(430,180,100,150,30,0,150,20);
+            b;
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+			</simplelist>
+	</refsection>
+</refentry>
+
+ 

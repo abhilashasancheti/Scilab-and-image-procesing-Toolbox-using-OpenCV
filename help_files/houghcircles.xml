@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="houghcircles" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>houghcircles</refname>
+
+		<refpurpose>Draws a circle .</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>vector_circles= houghcircles(input_image,double dp,double minDist,double param1 ,double param2,int minradius,int maxradius);</synopsis>
+	</refsynopsisdiv>
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>input_image  :</term>
+      <listitem><para> 8-bit, single-channel, grayscale input image, after blurring the image. If the input is not single channel then it will be internally converted.</para></listitem></varlistentry>
+   <varlistentry><term>dp:</term>
+      <listitem><para>  Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1 , the accumulator has the same resolution as the input image. If dp=2 , the accumulator has half as big width and height.if negative values are proided then 1 will be used instead.</para></listitem></varlistentry>
+   <varlistentry><term>minDist :</term>
+      <listitem><para> Minimum distance between the centers of the detected circles. If the parameter is too small, multiple neighbor circles may be falsely detected in addition to a true one. If it is too large, some circles may be missed.</para></listitem></varlistentry>
+    <varlistentry><term>param1 :</term>
+      <listitem><para> First method-specific parameter. In case of CV_HOUGH_GRADIENT , it is the higher threshold of the two passed to the Canny() edge detector (the lower one is twice smaller).</para></listitem></varlistentry>
+    <varlistentry><term>param2 :</term>
+      <listitem><para>Second method-specific parameter. In case of CV_HOUGH_GRADIENT , it is the accumulator threshold for the circle centers at the detection stage. The smaller it is, the more false circles may be detected. Circles, corresponding to the larger accumulator values, will be returned first.</para></listitem></varlistentry>
+    <varlistentry><term>minradius:</term>
+      <listitem><para>Minimum circle radius.</para></listitem></varlistentry>
+    <varlistentry><term>maxradius :</term>
+      <listitem><para> Maximum circle radius.</para></listitem></varlistentry>  
+    <varlistentry><term>vector_circles :</term>
+      <listitem><para> Output vector of found circles. Each vector is encoded as a 3-element floating-point vector (x, y, radius) .</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+	
+			
+			
+	
+	<refsection>
+		<title>Description</title>
+
+		<para>The function finds circles in a grayscale image using a modification of the Hough transform.
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+            b=gaussianBlur( a,9, 9, 2, 2 );  //reduces noise to avoid false circle detection. 
+            c=houghcircles(b,2,40,100,100,0,0);
+            c;
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>

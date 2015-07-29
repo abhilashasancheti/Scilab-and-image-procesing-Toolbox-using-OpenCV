@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xml:id="circle" xml:lang="en"
+					xmlns="http://docbook.org/ns/docbook"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xmlns:svg="http://www.w3.org/2000/svg"
+					xmlns:ns3="http://www.w3.org/1999/xhtml"
+					xmlns:mml="http://www.w3.org/1998/Math/MathML"
+					xmlns:db="http://docbook.org/ns/docbook">
+
+	<refnamediv>
+		<refname>circle</refname>
+
+		<refpurpose>Draws a circle .</refpurpose>
+	</refnamediv>
+
+	<refsynopsisdiv>
+		<title>Calling Sequence</title>
+
+		<synopsis>return_image = circle(input_image,double center_x,double center_y,int radius,int r_value,int g_value,int b_value,int thickness,int linetype,int shift);</synopsis>
+	</refsynopsisdiv>
+	<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>input_image  :</term>
+      <listitem><para> Image matrix(generated after imread where the circle is drawn.</para></listitem></varlistentry>
+   <varlistentry><term>center_x:</term>
+      <listitem><para> x coordinate of the center of the circle to be drawn.</para></listitem></varlistentry>
+   <varlistentry><term>center_y  :</term>
+      <listitem><para> y coordinate of the center of the circle to be drawn.</para></listitem></varlistentry>
+    <varlistentry><term>radius :</term>
+      <listitem><para> Radius of the circle to be drawn.</para></listitem></varlistentry>
+    <varlistentry><term>r_value :</term>
+      <listitem><para>Amount of r in the colour between 0 and 255.</para></listitem></varlistentry>
+    <varlistentry><term>g_value:</term>
+      <listitem><para>   Amount of g in the colour between 0 and 255.</para></listitem></varlistentry>
+    <varlistentry><term>b_value :</term>
+      <listitem><para> Amount of b in the colour between 0 and 255.</para></listitem></varlistentry>  
+    <varlistentry><term>thickness :</term>
+      <listitem><para> Thickness of the circle outline, if positive. Negative thickness means that a filled circle is to be drawn.</para></listitem></varlistentry> 
+    <varlistentry><term>linetype :</term>
+      <listitem><para> Type of the circle boundary.Can be 0/8 for 8 line connected, 4 for 4-line connected line.</para></listitem></varlistentry>
+    <varlistentry><term>shift :</term>
+      <listitem><para> Number of fractional bits in the coordinates of the center and in the radius value.</para></listitem></varlistentry>
+     <varlistentry><term>return_image  :</term>
+      <listitem><para> returns image matrix with changes applied.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+	
+			
+			
+	
+	<refsection>
+		<title>Description</title>
+
+		<para>The function circle draws a simple or filled circle with a given center , radius and colour on the input image. It returns the input image with circle drawn on it with the same type.
+		</para>
+				
+	</refsection>
+
+	<refsection>
+		<title>Examples</title>
+
+		<programlisting role="example"><![CDATA[
+			a=imread("/media/Data-2/Pictures/pic.jpg"); //change the path accordingly.
+            b=circle(a,100,100,20,255,0,0,5,8,0);
+            imshow(b);
+  ]]></programlisting>
+	</refsection>
+
+	<refsection>
+		<title>Authors</title>
+
+		<simplelist type="vert">
+			<member>Abhilasha Sancheti</member>
+		</simplelist>
+	</refsection>
+</refentry>
